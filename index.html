@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+
+<head>
+    <!-- <style>
+        div {
+            border-radius: 50px;
+            background: linear-gradient(21deg, #10abff, #1beabd);
+            padding: 20px;
+            width: auto;
+            margin-bottom: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            box-sizing: border-box;
+            color: #DC143C;
+            font-family: cursive;
+        }
+
+        input[type=submit] {
+            width: 40%;
+            background-color: white;
+            color: #10abff;
+            font-size: 20px;
+            text-align: center;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 3px solid #10abff;
+            border-radius: 25px;
+            box-sizing: border-box;
+            font-family: cursive;
+        }
+    </style> -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        function calcola() {
+
+            var lettere = {
+                'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7, 'h': 8, 'i': 9,
+                'j': 1, 'k': 2, 'l': 3, 'm': 4, 'n': 5, 'o': 6, 'p': 7, 'q': 8, 'r': 9,
+                's': 1, 't': 2, 'u': 3, 'v': 4, 'w': 5, 'x': 6, 'y': 7, 'z': 8, ' ': 0
+            };
+
+            var incanto = (document.getElementById("incanto").value).toLowerCase();
+            var incantoArray = incanto.split("");
+            var somma = 0;
+            var somArray;
+            var valenza = 0;
+            var valArray;
+
+            for (var i = 0; i < incantoArray.length; i++) {
+                somma = somma + lettere[incantoArray[i]];
+            }
+
+            somArray = somma.toString().split("");
+            if (somma > 9) {
+                console.log("Somma: " + somma);
+
+                for (var i = 0; i < somArray.length; i++) {
+                    valenza = valenza + parseInt(somArray[i]);
+                    console.log("Pos.1 somma: " + somArray[i] + "  Valenza: " + valenza);
+                }
+            }
+
+            for (; ;) {
+                if (valenza > 9) {
+                    valArray = valenza.toString().split("");
+                    console.log("Valenza: " + valenza);
+                    valenza = 0; 0
+
+                    //Assegno a valenza
+                    for (var i = 0; i < valArray.length; i++) {
+                        valenza = valenza + parseInt(valArray[i]);
+                        console.log("Pos.1 somma: " + valArray[i] + "  Valenza: " + valenza);
+                    }
+                }
+                else break;
+            }
+            document.getElementById("valenza").value = valenza;
+        }
+    </script>
+</head>
+
+<body class="subpixel-antialiased bg-gray-900">
+    <section class="container mx-auto flex flex-col items-center lg:justify-center h-screen p-4">
+        <div class="bg-gradient-to-b from-slate-600 to-slate-800 shadow rounded p-4 my-4 flex flex-col gap-4 w-full">
+            <h1 class="text-4xl text-white font-bold drop-shadow">Calcolo valenza</h1>
+
+            <div class="flex flex-col gap-2">
+                <label class="text-white drop-shadow" for="incanto">Incantesimo</label>
+                <input type="text" id="incanto" placeholder="Incantesimo" class="bg-white p-2 rounded">
+            </div>
+
+            <button onClick="calcola()"
+                class="w-full rounded p-4 bg-gradient-to-r from-red-900 to-red-500 text-white drop-shadow">Calcola
+                valenza
+                magica</button>
+
+            <div class="flex flex-col gap-2">
+                <label class="text-white drop-shadow" for="valenza">Valenza magica</label>
+                <input type="text" id="valenza" readonly="readonly" disabled placeholder="Valenza magica"
+                    class="bg-white p-2 rounded disabled cursor-not-allowed">
+            </div>
+
+            <span class="text-center text-slate-600 text-xs">Dennis Svenskeren - Tassorosso</span>
+        </div>
+    </section>
+</body>
